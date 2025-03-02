@@ -2,8 +2,8 @@ import React, { Fragment, useContext, useEffect, useState } from "react";
 import AllReviews from "./AllReviews";
 import ReviewForm from "./ReviewForm";
 
-import { ProductDetailsContext } from "./";
 import { LayoutContext } from "../layout";
+import { ProductDetailsContext } from "./";
 
 import { isAuthenticate } from "../auth/fetchApi";
 
@@ -18,17 +18,15 @@ const Menu = () => {
       <div className="flex flex-col md:flex-row items-center justify-center">
         <div
           onClick={(e) => dispatch({ type: "menu", payload: true })}
-          className={`${
-            data.menu ? "border-b-2 border-yellow-700" : ""
-          } px-4 py-3 cursor-pointer`}
+          className={`${data.menu ? "border-b-2 border-yellow-700" : ""
+            } px-4 py-3 cursor-pointer`}
         >
           Description
         </div>
         <div
           onClick={(e) => dispatch({ type: "menu", payload: false })}
-          className={`${
-            !data.menu ? "border-b-2 border-yellow-700" : ""
-          } px-4 py-3 relative flex cursor-pointer`}
+          className={`${!data.menu ? "border-b-2 border-yellow-700" : ""
+            } px-4 py-3 relative flex cursor-pointer`}
         >
           <span>Reviews</span>
           <span className="absolute text-xs top-0 right-0 mt-2 bg-yellow-700 text-white rounded px-1">
@@ -65,7 +63,6 @@ const ProductDetailsSectionTwo = (props) => {
       layoutData.singleProductDetail ? layoutData.singleProductDetail : ""
     );
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

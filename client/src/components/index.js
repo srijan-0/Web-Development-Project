@@ -19,7 +19,6 @@ import { Noticeshop } from "./shop/notice/notice";
 
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
-/* Routing All page will be here */
 const Routes = (props) => {
   return (
     <Router>

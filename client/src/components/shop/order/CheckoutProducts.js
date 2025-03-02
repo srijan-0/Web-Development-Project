@@ -8,7 +8,7 @@ import { cartListProduct } from "../partials/FetchApi";
 import { fetchData, fetchbrainTree } from "./Action";
 import { getBrainTreeToken } from "./FetchApi";
 
-import axios from 'axios'; // Import axios for API requests
+import axios from 'axios';
 import DropIn from "braintree-web-drop-in-react";
 
 const apiURL = process.env.REACT_APP_API_URL;
@@ -32,7 +32,6 @@ export const CheckoutComponent = (props) => {
     fetchData(cartListProduct, dispatch);
     fetchbrainTree(getBrainTreeToken, setState);
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleOrderSubmit = async () => {
@@ -41,16 +40,16 @@ export const CheckoutComponent = (props) => {
         id: product._id,
         quantity: quantity(product._id)
       })),
-      user: userId, // Replace with actual user ID if available in your context or session
+      user: userId,
       amount: totalCost(data.cartProduct),
       address: state.address,
       phone: state.phone,
     };
 
     try {
-      const response = await axios.post(`${apiURL}/api/order/create-order`, orderData); // Replace with your API endpoint
+      const response = await axios.post(`${apiURL}/api/order/create-order`, orderData);
       if (response.data.success) {
-        history.push("/"); // Redirect to order confirmation page or wherever you want after successful order
+        history.push("/");
       } else {
         setState({ ...state, error: "Order creation failed. Please try again." });
       }
@@ -128,7 +127,7 @@ export const CheckoutComponent = (props) => {
                       type="number"
                       id="phone"
                       className="border px-4 py-2"
-                      placeholder="+880"
+                      placeholder="+977"
                     />
                   </div>
                   <DropIn
